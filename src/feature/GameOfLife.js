@@ -28,6 +28,25 @@ const GameOfLife = () => {
   const runningRef = useRef(running)
   runningRef.current = running
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (!runningRef.current) {
+        return
+      }
+
+      if (stepLog < 0) {
+        setStepLog(0)
+      }
+
+      createLog()
+      runGame()
+    }, time)
+  }, [runningRef.current, grid])
+
+  useEffect(() => {
+    setGrid(gridRandom())
+  }, [])
+
   const runGame = () => {
     if (!runningRef.current) {
       return
@@ -149,25 +168,6 @@ const GameOfLife = () => {
       setTime(time - 100)
     }
   }
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (!runningRef.current) {
-        return
-      }
-
-      if (stepLog < 0) {
-        setStepLog(0)
-      }
-
-      createLog()
-      runGame()
-    }, time)
-  }, [runningRef.current, grid])
-
-  useEffect(() => {
-    setGrid(gridRandom())
-  }, [])
 
   return (
     <>
