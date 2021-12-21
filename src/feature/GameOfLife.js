@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import produce from 'immer'
 import './GameOfLife.css'
 
-const numRows = 50
-const numCols = 50
+const numRows = 30
+const numCols = 30
 
 const gridRandom = () => {
   const grid = []

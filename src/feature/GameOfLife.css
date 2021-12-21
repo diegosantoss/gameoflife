@@ -85,7 +85,16 @@ td.dead:hover {
 }
 
 @media screen and (max-width: 991px) {
-  .btns>button {
+  #game {
+    flex-direction: column-reverse;
+  }
+
+  .btns {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .btns>button, .btns>button:last-child {
     font-size: 13px;
     margin-bottom: 20px;
   }
